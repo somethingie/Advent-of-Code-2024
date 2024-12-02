@@ -1,0 +1,48 @@
+X is 0
+Listen to input
+
+Until input is nothing
+Split input into Rowarray with " ".
+Leftarray at X is "" with rowarray at 0.
+Rightarray at X is "" with rowarray at 1.
+build X up
+listen to input
+
+
+Lowestleft takes nothing
+Let the lowest be 100000
+let lowestindex be 0,
+
+let counter be 0,
+While it's less than 7
+   if the lowest > leftarray at counter,
+      let lowestindex be counter
+      let the lowest be leftarray at counter,
+   baby,
+   build counter up,
+baby,
+let leftarray at lowestindex be 100000
+
+Give back lowest
+
+
+Lowestright takes nothing
+Let the lowest be 100000
+let lowestindex be 0,
+
+let counter be 0,
+While it's less than 7
+   if the lowest > rightarray at counter,
+      let lowestindex be counter
+      let the lowest be rightarray at counter,
+   baby,
+   build counter up,
+baby,
+let rightarray at lowestindex be 100000
+
+Give back lowest
+
+
+
+let lowestofArray be Lowestleft taking 3
+shout "'" + lowestofArray + "'"
