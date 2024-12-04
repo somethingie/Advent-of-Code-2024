@@ -3,8 +3,10 @@ public class Day3PuzleInput {
     String input;
 
     public Day3PuzleInput(String size) {
-        if (size.equals("small")){
-            input = "small";
+        if (size.equals("small")) {
+            input = smallInput();
+        } else if (size.equals("medium")) {
+            input = mediumInput();
         } else {
             input = bigInput();
         }
@@ -12,7 +14,13 @@ public class Day3PuzleInput {
 
     String smallInput() {
         return """
-                xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))
+                xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5)
+                """;
+    }
+
+    String mediumInput() {
+        return """
+                mul(48,648)mul(637,618):#?^ {/*?<mul(506,718)&:why()@]mul(910,151)who(){*@{where()#mul(624,757)>why()+mul(739,690)mul(74,266)who()%][]*}who()mul(662,558)select()>>! ?!^/mul(973,451)>&from(113,668);@who()?mul(607,783)<+don't()what()mul(78,875)@:when()~mul(665,145)[)]!from()what();:<(mul(866,998)^}/!^mul(312,345) :mul(688,178)(mul(593,958)mul(920,416)-~when()>;,}[select(904,4)mul(7,573)?[*~]mul(327,304)#mul(263,191)@mul(677,760)*mul(846,234)$from()%what()what(248,864)$!&when()#mul(642,508)+&>from()![>@<{mul(469,481)why()select(44,921)>who()>:@[}mul(762,260)%mul(155,860)[mul(886,453))mul(168,7)what())/(mul(602,650)~/:~:%from(881,125)#mul(318,341)^$])mul(183,6)];$mul(785,159) #;$mul(644,162))$who()%$',mul(708,855)>%#-&mul(260,317)(mul(770,310)why()!#,~%when(){#do();}'-/who(979,84)mul(47,100){mul(56,886)where()mul(426,955)how()-(^/,when()~mul(5,654)()}*{{!}@&mul(397,386)what()where()$;mul(52,610)~what(967,284)];where()&from()mul(149,217)how()]what(694,413)+,;$/mul(808,101)why()mul(587,80) {:'who())when()mul(607,385) $(why()mul(368,757)how();mul(439,132)[how()}mul(211,816){~~'?when()why() /'mul(672,18){)+-{[],what()[mul(864,419)'>how()&&-mul(318,148)<from()<mul(10,526)>!mul(314,57)how()select()'[;/):>mul(722,602):~*[<do()where(){mul(219,344)what()when()$where()*%mul(134,909)/why()-$-do())$#&:?:mul(711,658)mul(841,476)]*~+]$mul(49,13)}[when()when(){%mul(384,180)from()[@-^where()}mul(983,543)mul(139,179)@where():when()/,when()(mul(659,253)' mul(62,501)how()[%when();>&select()who()mul(98,183)]&?-%$mul(408,996)&!<}&how()mul(406,286){,from()^]when()'mul(633,266)how())',where(){%mul(128,213)[why()don't()}{*@what(31,641) @}mul(732,47)what()+:+why(168,340){mul(119,206)*>']-%mul(924,311)how()}+mul(893,442)+{%what()where()@$@/}mul(445,325)who()when()!)[$)!+mul(804,553)~select()mul(980,422)?{[(}do()&[mul(385,988):what()%+when()]from()';]mul(865,805)from()'who()(who()]mul(77,141)from()$^mul(388,887)-!(!<):#where()mul(685,241)<what()}^<#mul(153,483)how()from()&how()'[mul(90,462)select(),<mul(604,556))mul(814,297)^select()@>mul(778,283)what()why()& ^,;mul(294,11)+;[mul(917/;~(:mul(730,865)^]-'when()-;mul(115,72) ~how()(+mul(457,940) %[@who()(what();-mul(610,656)when(279,723)'mul(519,892);when()^how()how(){{! )mul(702,416)mul(798,412)*?-mul(794,64)<:-,mul(676,525+%!@ #;mul(801,649){[]$mul(69,417)who()$from()when()($<(select(596,899)mul(261,685):][$&mul(929,616):what()how() ']mul(175,68))#mul(886,236}how()mul(674,816)!mul(452,370)+mul(816,632)'select()>%from()from()mul(195,244)(+(mul(791,10)}/from(300,146)'?when()mul(215,741)]where(103,872)mul(409,176)(*what()](from(863,305)who()why()mul(955,865{who()@#where()mul(297,379)how()mul(501,474)%when()?)>/(}}mul(630,973)#+how()who()+@mul(718,677)$ mul(332,719)@who()}-<{(]how()mul(378,679)
                 """;
     }
 
