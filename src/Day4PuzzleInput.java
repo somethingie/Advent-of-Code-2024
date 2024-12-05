@@ -4,23 +4,35 @@ public class Day4PuzzleInput {
     Day4PuzzleInput(String size) {
         if (size.equals("small")){
             input = smallInput();
-        } else {
+        } else if (size.equals("mini")) {
+            input = miniImput();
+        }else {
             input = bigInput();
         }
     }
 
+    public String miniImput() {
+        return """
+                ..X...
+                .SAMX.
+                .A..A.
+                XMAS.S
+                .X....
+                """;
+    }
+
     public String smallInput() {
         return """
-                MMMSXXMASM
-                MSAMXMSMSA
-                AMXSXMAAMM
-                MSAMASMSMX
-                XMASAMXAMM
-                XXAMMXXAMA
-                SMSMSASXSS
-                SAXAMASAAA
-                MAMMMXMMMM
-                MXMXAXMASX
+                .M.S......
+                ..A..MSMS.
+                .M.S.MAA..
+                ..A.ASMSM.
+                .M.S.M....
+                ..........
+                S.S.S.S.S.
+                .A.A.A.A..
+                M.M.M.M.M.
+                ..........
                 """;
     }
 
