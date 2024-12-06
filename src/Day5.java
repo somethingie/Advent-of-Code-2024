@@ -1,6 +1,9 @@
 import java.lang.reflect.Array;
 import java.util.*;
 
+/**
+ * We can always sort the requirements into one long list.
+ */
 public class Day5 {
 
     Set<Tuple> guidelines;
@@ -41,6 +44,28 @@ public class Day5 {
         }
     }
 
+    private int countmiddles() {
+        int index = getIndex(0);
+        int count = 0;
+        while (index != -1) {
+            //get middle
+            //count up middle
+            index = getIndex(index);
+        }
+        return count;
+    }
+
+    /**
+     * Returns the index of the correct lists in manuel. It does this by comparing them to the Set guidelines.
+     * @param begin
+     * @return
+     */
+    private int getIndex(int begin) {
+
+        return -1;
+    }
+
+
 
 
     class Tuple {
@@ -58,6 +83,28 @@ public class Day5 {
 
         public int getSecond() {
             return second;
+        }
+    }
+
+    /**
+     * A class that returns all integers mentioned to be before or after the chosen integer.
+     */
+    class BeforeAfter {
+        Integer[] before;
+        Integer[] after;
+
+        public BeforeAfter() {
+            for (int i = 0; i < ; i++) {
+
+            }
+        }
+
+        public Integer[] getBefore() {
+            return before;
+        }
+
+        public Integer[] getAfter() {
+            return after;
         }
     }
 

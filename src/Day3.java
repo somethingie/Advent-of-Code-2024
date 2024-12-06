@@ -7,7 +7,7 @@ public class Day3 {
 
     public static void main(String[] args) {
         Day3 today = new Day3();
-        System.out.println("Mul: " + today.readDosandDonts(false)+ "\n");
+        System.out.println("Mul: " + today.readDosandDonts(false));
         System.out.println("Mul with Do: " + today.readDosandDonts(true));
     }
 
