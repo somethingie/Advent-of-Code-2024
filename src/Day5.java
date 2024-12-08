@@ -2,23 +2,27 @@ import java.util.*;
 
 /**
  * We can always sort the requirements into one long list.
- * 
+ * <p>
  * Dude, I have thought of several ways of doing this:
  * Try all options per guideline
  * Try all options per set (Higher or lower)
- * Make one long list. 
+ * Make one long list.
+ */
+
+/**
+ * There is one wrong list
  */
 public class Day5 {
 
     SetTwoPointO[] guidelines; //preferable it's an array of size 99 with sets in it
-    Integer[] sortedlist;
     int countCorrectMiddles;
+    int countAllMiddles;
 
     public static void main(String[] args) {
         Day5 today = new Day5();
         today.setUp();
-        System.out.println("1: " + today.countCorrectMiddles);
-//        today.tryToSort();
+        System.out.println("1: " + today.countCorrectMiddles); //5091   //143
+        System.out.println("2: " + today.countAllMiddles);     //4681   //123
     }
 
     private Day5() {
@@ -28,11 +32,11 @@ public class Day5 {
     private void setUp() {
         String puzzleInput = (new Day5PuzzleInput("big")).input;
         String[] split = puzzleInput.split("\n");
-        sortedlist = new Integer[99];
 
         boolean page = false; //To see if the function of the page changed
 
         countCorrectMiddles = 0;
+        countAllMiddles = 0;
 
         guidelines = new SetTwoPointO[99];
 
@@ -58,16 +62,60 @@ public class Day5 {
                 if (seeIfValid(manual)) {
                     countCorrectMiddles += getMiddleValue(manual);
                 } else {
-                    //cry
-                    //or Sort them and then count middle.
+                    Integer[] sorted = getSortedList(manual);
+                    if (!seeIfValid(sorted)) {
+                        System.out.println("uh oh");
+                    }
+
+                    int add = getMiddleValue(getSortedList(sorted));
+                    countAllMiddles += add;
                 }
             }
         }
     }
 
-//    private void tryToSort(Integer[] toSort) {
-//
-//    }
+    public Integer[] getSortedList(Integer[] manual) {
+        int i = 0;
+        Integer[] sorted = new Integer[manual.length];
+        while ( i < manual.length) {
+            Integer[] after = Arrays.copyOfRange(manual, i + 1, manual.length); //all the numbers that come after it
+
+            int j = 0;
+            while (j < after.length) {
+                if (guidelines[manual[i]].before.contains(after[j])) {
+                    int old = manual[i];
+                    manual[i] = after[j];
+                    manual[i + 1 + j] = old;
+                    continue;
+                }
+                j++;
+            }
+            sorted[i] = manual[i];
+            i++;
+
+            /**
+             * {10,20,40,35,30,50}
+             * 0
+             * 10: ok
+             * 1
+             * 20: ok
+             * 2
+             * 40: owno, 35 should be before! {10,20,35,40,30,50}
+             * 35: owno, 30 should be before! {10,20,30,40,35,50}
+             * 30: ok
+             * 3
+             * 40: owno, 35 should be before!
+             * 35: ok
+             * 4
+             * 40: ok
+             * 5
+             * 50: ok
+             */
+
+        }
+        return sorted;
+    }
+
 
     /**
      * [75,47,61,53,29]
@@ -76,35 +124,23 @@ public class Day5 {
      * check if invalid.
      *
      * @param manual array of the manual thing
-     * @return true if valid
+     * @return -1 if valid
      */
     private boolean seeIfValid(Integer[] manual) {
         for (int i = 0; i < manual.length; i++) { //for every integer in the array, check:
             Integer[] after = Arrays.copyOfRange(manual, i + 1, manual.length); //all the numbers that come after it
             Set<Integer> pagesAfter = new HashSet<>(Arrays.asList(after));
 
-            ; // All the values that should be before it
-//            System.out.println(manual[i] + " Before: " + Arrays.toString(guidelines[manual[i]].before.toArray()) + " After: " + Arrays.toString(guidelines[manual[i]].after.toArray()));
             if (!Collections.disjoint(pagesAfter, guidelines[manual[i]].before)) {
-                return false;
-            }
-
-            Integer[] before = Arrays.copyOfRange(manual, 0, i + 1);
-            Set<Integer> pagesBefore = new HashSet<>(Arrays.asList(before));
-
-            if (!Collections.disjoint(pagesBefore, guidelines[manual[i]].after)) {
                 return false;
             }
         }
         return true;
     }
 
+
     private int getMiddleValue(Integer[] manual) {
         return manual[manual.length / 2];
-    }
-
-    private int getCountCorrectMiddles() {
-        return countCorrectMiddles;
     }
 
 
