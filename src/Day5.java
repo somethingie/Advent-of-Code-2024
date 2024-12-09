@@ -92,26 +92,6 @@ public class Day5 {
             }
             sorted[i] = manual[i];
             i++;
-
-            /**
-             * {10,20,40,35,30,50}
-             * 0
-             * 10: ok
-             * 1
-             * 20: ok
-             * 2
-             * 40: owno, 35 should be before! {10,20,35,40,30,50}
-             * 35: owno, 30 should be before! {10,20,30,40,35,50}
-             * 30: ok
-             * 3
-             * 40: owno, 35 should be before!
-             * 35: ok
-             * 4
-             * 40: ok
-             * 5
-             * 50: ok
-             */
-
         }
         return sorted;
     }
